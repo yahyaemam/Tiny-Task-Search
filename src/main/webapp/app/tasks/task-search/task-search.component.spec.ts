@@ -17,9 +17,9 @@ describe('TaskSearchComponent', () => {
   });
 
   it('should emit search value when search function called', () => {
-   spyOn( taskSearchComponent.searchValue,'emit' );
+   spyOn( taskSearchComponent.searchValueChange,'emit' );
     taskSearchComponent.search({target:{value:'test'}});
-    expect(taskSearchComponent.searchValue.emit).toHaveBeenCalledWith('test');
+    expect(taskSearchComponent.searchValueChange.emit).toHaveBeenCalledWith('test');
   });
 
 });

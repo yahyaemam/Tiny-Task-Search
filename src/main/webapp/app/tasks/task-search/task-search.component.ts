@@ -17,15 +17,16 @@ export class TaskSearchComponent implements OnInit {
 
 
   public searchWithdebounce: Function;
+  @Input() searchValue: string;
   @Input() debounceTime = 250;
-  @Output() searchValue: EventEmitter<string> = new EventEmitter();
+  @Output() searchValueChange: EventEmitter<string> = new EventEmitter();
 
   constructor( private helperUtlis: HelperUtlis) { }
   ngOnInit(): void {
     this.searchWithdebounce = this.helperUtlis.debounce(this.search, this.debounceTime, false);
   }
   search(event): void {
-      this.searchValue.emit(event.target.value);
+      this.searchValueChange.emit(event.target.value);
   }
 
 }

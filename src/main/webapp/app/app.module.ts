@@ -11,6 +11,8 @@ import { DefaultTaskService } from './tasks/default-task.service';
 import { LocalTaskService } from './tasks/local-task.service';
 import { TasksModule } from './tasks/tasks.module';
 import { HelperUtlis } from './helper-utlis.service';
+import { RouterModule } from '@angular/router';
+import { TaskComponent } from './tasks/task.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +24,8 @@ import { HelperUtlis } from './helper-utlis.service';
     MatIconModule,
     MatToolbarModule,
     TasksModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(  [{ path: '' , component: TaskComponent } ]   )
   ],
   providers: [
     {provide: HelperUtlis, useClass: HelperUtlis},
